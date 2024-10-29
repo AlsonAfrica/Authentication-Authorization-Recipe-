@@ -9,7 +9,7 @@ const router = express.Router()
 router.post("/user/login", loginUser)
 
 // POST THE USER ON BD/register user
-router.post("/user/register",registerUser)
+router.post("/user/register", registerUser)
 
 // Route for creating a new recipe
 router.post('/recipe',protect,createItem)
