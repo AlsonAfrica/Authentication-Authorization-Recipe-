@@ -1,5 +1,20 @@
-# Recipe App RESTful API
-This project implements a RESTful API for a recipe application using Node.js, Express, and MongoDB. The API allows users to create, retrieve, update, and delete recipes, and it handles errors gracefully. It also supports pagination for efficiently handling large datasets.
+# Recipe App with Authentication and Authorization
+This project is a recipe management application that includes user authentication and authorization, allowing users to securely manage recipes and control access based on roles.
+
+# Features
+
+## Authentication
+
+- Token based authentication
+- Issue a JWT (JSON Web Token) or Session ID upon login and registration
+- Validate user identity on each request to ensure secure access
+
+## Authorization
+
+- Role-based access control (RBAC) to define permissions and assign roles
+- User roles include user
+- Permissions managed per role to control recipe creation, editing, and deletion
+
 
 # Features
 - CRUD operations (Create, Read, Update, Delete) for recipe data.
@@ -16,11 +31,19 @@ This project implements a RESTful API for a recipe application using Node.js, Ex
 - Mongoose (MongoDB object modeling)
 - Postman/Insomnia (For API testing)
 - Nodemon
+- jsonwebtoken: (For generating and validating JWTs)
+- bcryptjs: (For password hashing)
+- dotenv: (For managing environment variables)
 
 # Prerequisites
 - Node.js and npm installed
 - MongoDB running locally or accessible via MongoDB Atlas and Mongo Compass
 - Postman for testing API endpoints
+
+## Usage
+Registration
+Users can register by providing their email and password. Logged in users are granted priviledges to perform crud operations on their recipe apps
+
 
 ### Setup Instructions
 1. Clone the repository:
@@ -60,12 +83,30 @@ This project implements a RESTful API for a recipe application using Node.js, Ex
         category: { type: String, required: true }
         }
 
-
+## Data Model: The following schema defines the structure for the new User
+     ``` bash
+         email: {
+        type: String,
+        required: true,
+        unique: true,
+        validate: [validator.isEmail, "Please enter a valid email"]
+    },
+    password: {
+        type: String,
+        required: true,
+        validate: {
+            validator: function(value) {
+                // Regex to validate password complexity
+                return /^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[0-9])(?=.*?[#^@$!%*?&-]).{8,}$/.test(value);
+            },
+            message: "Password must contain at least one lowercase letter, one uppercase letter, one digit, one special character, and be at least 8 characters long."
+        },
+    },
 
 
 ## API Endpoints
 
-Here is a table for the API endpoints:
+Here is a table for the API for Recipe and User Authetication:
 
 | Method | Endpoint             | Description                                  |
 |--------|----------------------|----------------------------------------------|
@@ -74,6 +115,10 @@ Here is a table for the API endpoints:
 | GET    | `/recipes/:id`        | Get a specific recipe by ID                  |
 | PUT    | `/recipes/:id`        | Update a recipe by ID                        |
 | DELETE | `/recipes/:id`        | Delete a recipe by ID                        |
+|--------|----------------------|-----------------------------------------------|
+| POST   | `/user/register`     | Create a new user                             |
+| POST   |  `/user/login`       | Login the user                                |
+|        |                      |                                               |
 
 ## Pagination
 - Clients can specify page and pageSize query parameters to paginate through recipes.
