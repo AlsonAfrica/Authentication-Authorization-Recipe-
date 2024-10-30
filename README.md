@@ -48,7 +48,7 @@ Users can register by providing their email and password. Logged in users are gr
 ### Setup Instructions
 1. Clone the repository:
     ``` bash
-        git clone https://github.com/AlsonAfrica/Recipe-App-Node-Mongo-
+        git clone https://github.com/AlsonAfrica/Authentication-Authorization-Recipe-.git
         cd Database
 
 
@@ -68,7 +68,29 @@ Users can register by providing their email and password. Logged in users are gr
 4. Run the application:
     ``` bash
         nodemon server.js
-        The API will run at http://localhost:3000 or specified port
+        The API will run at http://localhost:3001 or specified port
+
+
+5. Register the user using postman:
+    ``` bash
+        endpoint: http://localhost:3001/api/v1/user/register
+        pass in the object: {"email":"user123@gmail.com", "password":User@12345"}
+
+
+6. Login the user using Postman:
+    ``` bash
+        endpoint: http://localhost:3001/api/v1/user/login
+        pass in the object: {"email":"user123@gmail.com", "password":User@12345"}
+        A token will be generated 
+
+
+7. Use the generated token to perfom crud operations on recipes :
+    ``` bash
+        On Postman: Navigate to Authorization.
+        Navigate to Type dropdown: select Bearer Token
+        Copy and Paste the generated token on the Token field
+
+
 
 
 ## Data Model: The following schema defines the structure for recipes
