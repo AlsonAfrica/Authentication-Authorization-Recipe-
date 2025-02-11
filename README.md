@@ -75,7 +75,11 @@ Users can register by providing their email and password. Logged in users are gr
     ``` bash
         HTTP: POST    
         endpoint: http://localhost:3001/api/v1/user/register
-        pass in the object: {"email":"user123@gmail.com", "password":User@12345"}
+        pass in the object:
+        {
+            "email":"user123@gmail.com", 
+            "password":"User@12345"
+        }
 
 
 6. Login the user using Postman:
