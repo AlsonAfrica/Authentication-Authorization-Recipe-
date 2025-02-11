@@ -89,6 +89,9 @@ Users can register by providing their email and password. Logged in users are gr
         pass in the object: {"email":"user123@gmail.com", "password":User@12345"}
         A token will be generated 
 
+## Login
+![image](https://github.com/user-attachments/assets/b768a385-6cd8-4d0a-b5bc-464fb574b4c8)
+
 
 7. Use the generated token to perfom crud operations on recipes :
     ``` bash
