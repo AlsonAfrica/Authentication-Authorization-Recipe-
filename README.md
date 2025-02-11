@@ -81,6 +81,10 @@ Users can register by providing their email and password. Logged in users are gr
             "password":"User@12345"
         }
 
+    
+## Register
+![image](https://github.com/user-attachments/assets/7961e083-5b54-46f7-a290-435507367b28)
+
 
 6. Login the user using Postman:
     ``` bash
