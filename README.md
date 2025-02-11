@@ -143,6 +143,8 @@ Users can register by providing their email and password. Logged in users are gr
 
 Here is a table for the API for Recipe and User Authetication:
 
+### ADD THE ENDPOINT AT THE END OF THE FOLLOWING  http://localhost:3001/api/v1/...
+
 | Method | Endpoint             | Description                                  |
 |--------|----------------------|----------------------------------------------|
 | POST   | `/recipes`            | Create a new recipe                          |
